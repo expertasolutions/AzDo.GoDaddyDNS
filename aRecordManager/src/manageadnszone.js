@@ -13,9 +13,9 @@ var tl = require('azure-pipelines-task-lib');
 var shell = require('node-powershell');
 
 try {
-    
-    var azureEndpointSubscription = tl.getInput("azureSubscriptionEndpoint", true);
-    var resourceGroupName = tl.getInput("resourceGroupName", true);
+
+    var godaddyKey = tl.getInput("godaddyKey", true);
+    var godaddySecret = tl.getInput("godaddySecret", true);
     var domainName = tl.getInput("domainName", true);
     var aName = tl.getInput("aName", true);
 
@@ -26,17 +26,9 @@ try {
     var ipAddress = tl.getInput("ipAddress", ipRequired);
     var ttl = tl.getInput("ttl", true);
     
-    var subcriptionId = tl.getEndpointDataParameter(azureEndpointSubscription, "subscriptionId", false);
-
-    var servicePrincipalId = tl.getEndpointAuthorizationParameter(azureEndpointSubscription, "serviceprincipalid", false);
-    var servicePrincipalKey = tl.getEndpointAuthorizationParameter(azureEndpointSubscription, "serviceprincipalkey", false);
-    var tenantId = tl.getEndpointAuthorizationParameter(azureEndpointSubscription,"tenantid", false);
-
-    console.log("SubscriptionId: " + subcriptionId);
-    console.log("ServicePrincipalId: " + servicePrincipalId);
-    console.log("ServicePrincipalKey: " + servicePrincipalKey);
+    console.log("GoDaddyKey: " + godaddyKey);
+    console.log("GoDaddySecret: " + godaddySecret);
     console.log("TenantId: " + tenantId);
-    console.log("ResourceGroupName: " + resourceGroupName);
     console.log("ActionType: " + actionType);
     console.log("DomainName: " + domainName);
     console.log("A Name: " + aName);

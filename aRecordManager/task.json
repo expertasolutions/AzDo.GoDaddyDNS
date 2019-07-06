@@ -16,23 +16,31 @@
     "groups": [
         {
           "name": "subazadadmin",
-          "displayName": "Subscription Azure AD Admin",
+          "displayName": "GoDaddy account details",
           "isExpanded": true
         },
         {
             "name": "dnszonedetail",
-            "displayName": "Azure Dns zone details",
+            "displayName": "GoDaddy DNS zone details",
             "isExpanded": true
         }
     ],
     "inputs": [
         {
-          "name": "azureSubscriptionEndpoint",
-          "type": "connectedService:AzureRM",
-          "label": "Azure subscription",
-          "helpMarkDown": "Select the Azure Resource Manager subscription, which contains Azure Container Registry.Note: To configure new service connection, select the Azure subscription from the list and click 'Authorize'. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.",
+          "name": "godaddyKey",
+          "type": "string",
+          "label": "GoDaddy Key",
           "defaultValue": "",
-          "required": true
+          "required": true,
+          "groupName": "subazadadmin"
+        },
+        {
+          "name": "godaddySecret",
+          "type": "string",
+          "label": "GoDaddy Secret",
+          "defaultValue": "",
+          "required": true,
+          "groupName": "subazadadmin"
         },
         {
           "name": "actionType",
@@ -47,18 +55,9 @@
           "groupName": "dnszonedetail"
         },
         {
-          "name": "resourceGroupName",
-          "label": "DNS Zone resource group name",
-          "type": "pickList",
-          "defaultValue": "",
-          "required": true,
-          "helpMarkDown": "",
-          "groupName": "dnszonedetail"
-        },
-        {
           "name": "domainName",
           "label": "DNS Zone",
-          "type": "pickList",
+          "type": "string",
           "defaultValue": "",
           "required": true,
           "helpMarkDown": "",
@@ -93,22 +92,7 @@
           "visibleRule":"actionType = createUpdate"
         }
     ],
-    "dataSourceBindings" : [
-      {
-        "target": "resourceGroupName",
-        "endpointId": "$(azureSubscriptionEndpoint)",
-        "endpointUrl": "{{{endpoint.url}}}/subscriptions/{{{endpoint.subscriptionId}}}/providers/Microsoft.Network/dnsZones?api-version=2018-03-01-preview",
-        "resultSelector": "jsonpath:$.value[*]",
-        "resultTemplate": "{{{ #extractResource id resourcegroups}}}"
-      },
-      {
-        "target":"domainName",
-        "endpointId":"$(azureSubscriptionEndpoint)",
-        "endpointUrl":"{{{endpoint.url}}}/subscriptions/{{{endpoint.subscriptionId}}}/resourceGroups/$(resourceGroupName)/providers/Microsoft.Network/dnsZones?api-version=2018-03-01-preview",
-        "resultSelector":"jsonpath:$.value[*]",
-        "resultTemplate":"{{{name}}}"
-      }
-    ],
+    "dataSourceBindings" : [],
     "outputVariables" : [],
     "execution": {
         "Node": {
