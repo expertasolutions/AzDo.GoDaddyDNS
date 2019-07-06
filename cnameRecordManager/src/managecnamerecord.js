@@ -11,9 +11,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 var tl = require('azure-pipelines-task-lib');
 var shell = require('node-powershell');
+var http = require('http');
 
 try {
-    
     var godaddyKey = tl.getInput("godaddyKey", true);
     var godaddySecret = tl.getInput("godaddySecret", true);
     var domainName = tl.getInput("domainName", true);
@@ -27,7 +27,27 @@ try {
     console.log("DomainName: " + domainName);
     console.log("CName: " + cname);
     console.log("Alias: " + alias);
+
+    var url = "https://api.ote-godaddy.com";
+    var options = {
+        host: url,
+        path: '/v1/domains/' + domainName,
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": godaddyKey + ":" + godaddySecret
+        }
+    }
     
+    http.request(options, function(res){
+        console.log('STATUS: ' + res.statusCode);
+        console.log('HEADERS: ' + JSON.stringify(res.headers));
+        res.setEncoding('utf8');
+        res.on('data', function(chunk){
+            console.log('BODY: ' + chunk);
+        });
+    }).end();
+
 } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message || 'run() failed');
 }
