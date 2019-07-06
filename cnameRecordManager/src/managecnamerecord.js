@@ -14,24 +14,15 @@ var shell = require('node-powershell');
 
 try {
     
-    var azureEndpointSubscription = tl.getInput("azureSubscriptionEndpoint", true);
-    var resourceGroupName = tl.getInput("resourceGroupName", true);
+    var godaddyKey = tl.getInput("godaddyKey", true);
+    var godaddySecret = tl.getInput("godaddySecret", true);
     var domainName = tl.getInput("domainName", true);
     var cname = tl.getInput("cname", true);
     var alias = tl.getInput("alias", true);
     var actionType = tl.getInput("actionType", true);
     
-    var subcriptionId = tl.getEndpointDataParameter(azureEndpointSubscription, "subscriptionId", false);
-
-    var servicePrincipalId = tl.getEndpointAuthorizationParameter(azureEndpointSubscription, "serviceprincipalid", false);
-    var servicePrincipalKey = tl.getEndpointAuthorizationParameter(azureEndpointSubscription, "serviceprincipalkey", false);
-    var tenantId = tl.getEndpointAuthorizationParameter(azureEndpointSubscription,"tenantid", false);
-
-    console.log("SubscriptionId: " + subcriptionId);
-    console.log("ServicePrincipalId: " + servicePrincipalId);
-    console.log("ServicePrincipalKey: " + servicePrincipalKey);
-    console.log("TenantId: " + tenantId);
-    console.log("ResourceGroupName: " + resourceGroupName);
+    console.log("GoDaddyKey: " + godaddyKey);
+    console.log("GoDaddySecret: " + godaddySecret);
     console.log("ActionType: " + actionType);
     console.log("DomainName: " + domainName);
     console.log("CName: " + cname);
