@@ -21,7 +21,7 @@
         },
         {
             "name": "dnszonedetail",
-            "displayName": "Azure Dns zone details",
+            "displayName": "GoDaddy DNS zone details",
             "isExpanded": true
         }
     ],
@@ -31,14 +31,16 @@
           "type": "string",
           "label": "GoDaddy Key",
           "defaultValue": "",
-          "required": true
+          "required": true,
+          "groupName": "subazadadmin"
         },
         {
           "name": "godaddySecret",
           "type": "string",
           "label": "GoDaddy Secret",
           "defaultValue": "",
-          "required": true
+          "required": true,
+          "groupName": "subazadadmin"
         },
         {
           "name": "actionType",
