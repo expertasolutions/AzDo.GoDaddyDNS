@@ -14,15 +14,16 @@ var shell = require('node-powershell');
 var http = require('http');
 
 try {
-    var godaddyKey = tl.getInput("godaddyKey", true);
-    var godaddySecret = tl.getInput("godaddySecret", true);
+    var goDaddyEndpoint = tl.getInput("godaddyAccount", true);
+    var goDaddyAuth = tl.getEndpointDataParameter(goDaddyEndpoint, "authorization", false);
+
     var domainName = tl.getInput("domainName", true);
     var cname = tl.getInput("cname", true);
     var alias = tl.getInput("alias", true);
     var actionType = tl.getInput("actionType", true);
     
-    console.log("GoDaddyKey: " + godaddyKey);
-    console.log("GoDaddySecret: " + godaddySecret);
+    console.log("GoDaddy Authentication: " + goDaddyAuth);
+
     console.log("ActionType: " + actionType);
     console.log("DomainName: " + domainName);
     console.log("CName: " + cname);
