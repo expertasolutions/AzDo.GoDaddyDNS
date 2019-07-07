@@ -15,8 +15,8 @@ var http = require('http');
 
 try {
     var goDaddyEndpoint = tl.getInput("godaddyAccount", true);
-    var goDaddyToken = tl.getEndpointDataParameter(goDaddyEndpoint, "apitoken", false);
-    var goDaddySecret = tl.getEndpointDataParameter(goDaddyEndpoint, "apisecret", false);
+    var goDaddyToken = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apitoken", false);
+    var goDaddySecret = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apisecret", false);
 
     var domainName = tl.getInput("domainName", true);
     var cname = tl.getInput("cname", true);
