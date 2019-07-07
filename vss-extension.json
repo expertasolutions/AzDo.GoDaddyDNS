@@ -80,7 +80,17 @@
               "ms.vss-endpoint.service-endpoint-types"
           ],
           "properties": {
-              "name": "goDaddyServiceEndpoint"
+            "name": "godaddy",
+            "displayName": "GoDaddy API endpoint",
+            "url": {
+                "displayName": "API Url"
+            },
+            "dataSources": [],
+            "authenticationSchemes": [
+                {
+                    "type": "ms.vss-endpoint.endpoint-auth-scheme-token"
+                }
+            ]
           }
       }
   ]
