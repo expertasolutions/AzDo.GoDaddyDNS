@@ -95,7 +95,7 @@
                             "name": "Authorization",
                             "value": "{{endpoint.apitoken}}:{{endpoint:apisecret}}"
                         }
-                    ]
+                    ],
                     "inputDescriptors": [
                         {
                             "id": "apitoken",
