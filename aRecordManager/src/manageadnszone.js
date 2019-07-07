@@ -14,8 +14,12 @@ var shell = require('node-powershell');
 
 try {
 
-    var godaddyKey = tl.getInput("godaddyKey", true);
-    var godaddySecret = tl.getInput("godaddySecret", true);
+    var goDaddyEndpoint = tl.getInput("godaddyAccount", true);
+    var goDaddyToken = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apitoken", false);
+    var goDaddySecret = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apisecret", false);
+
+    var goDaddyToken = tl.getInput("godaddyKey", true);
+    var goDaddySecret = tl.getInput("godaddySecret", true);
     var domainName = tl.getInput("domainName", true);
     var aName = tl.getInput("aName", true);
 
@@ -26,8 +30,8 @@ try {
     var ipAddress = tl.getInput("ipAddress", ipRequired);
     var ttl = tl.getInput("ttl", true);
     
-    console.log("GoDaddyKey: " + godaddyKey);
-    console.log("GoDaddySecret: " + godaddySecret);
+    console.log("GoDaddyKey: " + goDaddyToken);
+    console.log("GoDaddySecret: " + goDaddySecret);
     console.log("ActionType: " + actionType);
     console.log("DomainName: " + domainName);
     console.log("A Name: " + aName);
