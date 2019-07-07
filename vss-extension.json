@@ -75,26 +75,26 @@
       },
       {
         "id": "godaddy-auth-scheme-token",
-        "description": "i18n:GoDaddy Authentication Scheme",
+        "description": "GoDaddy Authentication Scheme",
         "type": "ms.vss-endpoint.service-endpoint-auth-scheme",
         "targets": [
             "ms.vss-endpoint.endpoint-auth-schemes"
         ],
         "properties":{
             "name": "GoDaddyAuth",
-            "displayName": "i18n:GoDaddy Token Based Authentication",
+            "displayName": "GoDaddy Token Based Authentication",
             "headers": [
                 {
-                    "name":"Authorization",
+                    "name": "Authorization",
                     "value:": "{{endpoint.apitoken}}"
                 }
             ],
             "inputDescriptors": [
                 {
                     "id": "apitoken",
-                    "name": "i18n:API Token",
-                    "description":"i18n:API Token for connection to endpoint",
-                    "inputMode":"textbox",
+                    "name": "API Token",
+                    "description": "API Token for connection to endpoint",
+                    "inputMode": "textbox",
                     "isConfidential": true,
                     "validation": {
                         "isRequired": true,
@@ -118,7 +118,6 @@
             "url": {
                 "displayName": "API Url"
             },
-            "dataSources": [],
             "authenticationSchemes": [
                 {
                     "type": "godaddy-auth-scheme-token"
