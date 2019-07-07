@@ -24,7 +24,7 @@ try {
     var actionType = tl.getInput("actionType", true);
     
     console.log("GoDaddy API Token: " + goDaddyToken);
-    console.log("GoDaddy API Secret: " + godaddySecret);
+    console.log("GoDaddy API Secret: " + goDaddySecret);
 
     console.log("ActionType: " + actionType);
     console.log("DomainName: " + domainName);
@@ -38,7 +38,7 @@ try {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
-            "Authorization": godaddyKey + ":" + godaddySecret
+            "Authorization": goDaddyToken + ":" + goDaddySecret
         }
     }
     
