@@ -28,7 +28,6 @@ try {
     
     console.log("GoDaddyKey: " + godaddyKey);
     console.log("GoDaddySecret: " + godaddySecret);
-    console.log("TenantId: " + tenantId);
     console.log("ActionType: " + actionType);
     console.log("DomainName: " + domainName);
     console.log("A Name: " + aName);
