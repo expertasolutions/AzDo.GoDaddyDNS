@@ -1,0 +1,25 @@
+{
+  "id": "godaddy-serviceendpoint",
+  "description": "GoDaddy Service Endpoint",
+  "type": "ms-vss-endpoint.endpoint-types",
+  "targets": [ "ms.vss-endpoint.endpoint-types" ],
+  "properties": {
+    "name": "godaddy",
+    "displayName": "GoDaddy API endpoint",
+    "url": {
+      "displayName": "API Url"
+    },
+    "dataSources": [
+      {
+        "name": "GoDaddy Accounts",
+        "endpointUrl": "{{endpoint.url}}/api/projects/index",
+        "resultSelector": "jsonpath:$[*].nm"
+      }
+    ],
+    "authenticationSchemes": [
+      {
+        "type": "ms.vss-endpoint.endpoint-auth-scheme-token"
+      }
+    ]
+  }
+}

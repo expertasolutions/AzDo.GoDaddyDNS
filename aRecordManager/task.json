@@ -1,5 +1,5 @@
 {
-  "id": "ac4aaf69-b3f3-4763-8d95-f4d8f3563e95",
+    "id": "ac4aaf69-b3f3-4763-8d95-f4d8f3563e95",
     "name": "ARecordManager",
     "friendlyName": "A record DNS Manager",
     "description": "Task to create/update an 'A' Dns Record",

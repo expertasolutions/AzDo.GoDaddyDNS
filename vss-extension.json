@@ -72,6 +72,16 @@
           "properties": {
               "name": "cnameRecordManager"
           }
+      },
+      {
+          "id": "godaddy-serviceEndpoint",
+          "type": "ms-vss-endpoint",
+          "targets": [
+              "ms.vss-endpoint.service-endpoint-types"
+          ],
+          "properties": {
+              "name": "goDaddyServiceEndpoint"
+          }
       }
   ]
 }

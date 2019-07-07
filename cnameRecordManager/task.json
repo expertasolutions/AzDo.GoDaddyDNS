@@ -1,5 +1,5 @@
 {
-  "id": "d65c86c1-4206-4a50-8092-70a8361e9d44",
+    "id": "d65c86c1-4206-4a50-8092-70a8361e9d44",
     "name": "CNAMERecordManager",
     "friendlyName": "CNAME record DNS Manager",
     "description": "Task to create/update a 'CNAME' Dns Record",
