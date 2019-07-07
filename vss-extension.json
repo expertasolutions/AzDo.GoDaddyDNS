@@ -99,7 +99,7 @@
                     "inputDescriptors": [
                         {
                             "id": "apitoken",
-                            "name": "API Token",
+                            "name": "GoDaddy API Key",
                             "description": "API Token for connection to endpoint",
                             "inputMode": "textbox",
                             "isConfidential": true,
@@ -111,7 +111,7 @@
                         },
                         {
                             "id": "apisecret",
-                            "name": "API Secret",
+                            "name": "GoDaddy API Secret",
                             "description": "API Secret for connection to endpoint",
                             "inputMode": "textbox",
                             "isConfidential": true,

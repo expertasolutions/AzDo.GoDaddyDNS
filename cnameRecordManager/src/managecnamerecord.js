@@ -15,14 +15,16 @@ var http = require('http');
 
 try {
     var goDaddyEndpoint = tl.getInput("godaddyAccount", true);
-    var goDaddyAuth = tl.getEndpointDataParameter(goDaddyEndpoint, "authorization", false);
+    var goDaddyToken = tl.getEndpointDataParameter(goDaddyEndpoint, "apitoken", false);
+    var goDaddySecret = tl.getEndpointDataParameter(goDaddyEndpoint, "apisecret", false);
 
     var domainName = tl.getInput("domainName", true);
     var cname = tl.getInput("cname", true);
     var alias = tl.getInput("alias", true);
     var actionType = tl.getInput("actionType", true);
     
-    console.log("GoDaddy Authentication: " + goDaddyAuth);
+    console.log("GoDaddy API Token: " + goDaddyToken);
+    console.log("GoDaddy API Secret: " + godaddySecret);
 
     console.log("ActionType: " + actionType);
     console.log("DomainName: " + domainName);
