@@ -83,12 +83,6 @@
         "properties":{
             "name": "GoDaddyAuth",
             "displayName": "GoDaddy Token Based Authentication",
-            "headers": [
-                {
-                    "name": "Authorization",
-                    "value:": "{{endpoint.apitoken}}"
-                }
-            ],
             "inputDescriptors": [
                 {
                     "id": "apitoken",
