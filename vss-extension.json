@@ -74,9 +74,9 @@
           }
       },
       {
-          "id": "godaddy-serviceEndpoint",
+          "id": "godaddy-service-endpoint",
           "description": "GoDaddy Service Endpoint",
-          "type": "ms-vss-endpoint",
+          "type": "ms.vss-endpoint.service-endpoint-type",
           "targets": [
               "ms.vss-endpoint.service-endpoint-type"
           ],
