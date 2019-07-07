@@ -150,9 +150,6 @@
             },
             "authenticationSchemes": [
                 {
-                    "type": "godaddy-auth-scheme-token"
-                },
-                {
                     "type": "endpoint-auth-scheme-custom"
                 }
             ]
