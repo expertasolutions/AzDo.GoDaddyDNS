@@ -28,7 +28,7 @@ try {
     console.log("CName: " + cname);
     console.log("Alias: " + alias);
 
-    var url = "https://api.ote-godaddy.com";
+    var url = "api.ote-godaddy.com";
     var options = {
         host: url,
         path: '/v1/domains/' + domainName,
