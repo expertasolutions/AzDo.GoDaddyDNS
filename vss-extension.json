@@ -102,6 +102,18 @@
                                 "dataType":"string",
                                 "maxLength": 300
                             }
+                        },
+                        {
+                            "id": "apisecret",
+                            "name": "API Secret",
+                            "description": "API Secret for connection to endpoint",
+                            "inputMode": "textbox",
+                            "isConfidential": true,
+                            "validation": {
+                                "isRequired": true,
+                                "dataType":"string",
+                                "maxLength": 100
+                            }
                         }
                     ]
                 }
