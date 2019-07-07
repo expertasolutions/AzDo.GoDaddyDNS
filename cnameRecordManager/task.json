@@ -43,6 +43,13 @@
           "groupName": "subazadadmin"
         },
         {
+          "name": "godaddyAccount",
+          "type": "connectedService:godaddy-serviceendpoint",
+          "label": "GoDaddy service/server endpoint",
+          "required": true,
+          "defaultValue": ""
+        },
+        {
           "name": "actionType",
           "label": "Action type",
           "type": "pickList",
@@ -82,7 +89,13 @@
           "visibleRule": "actionType = createUpdate"
         }
     ],
-    "dataSourceBindings" : [],
+    "dataSourceBindings" : [
+      {
+        "target": "godaddyAccount",
+        "endpointId": "$(godaddyService)",
+        "dataSourceName": "GoDaddyAccounts"
+      }
+    ],
     "outputVariables" : [],
     "execution": {
         "Node": {
