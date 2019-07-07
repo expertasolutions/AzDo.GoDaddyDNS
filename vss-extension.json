@@ -121,7 +121,7 @@
             "dataSources": [],
             "authenticationSchemes": [
                 {
-                    "type": "ms.vss-endpoint.godaddy-auth-scheme-token"
+                    "type": "godaddy-auth-scheme-token"
                 }
             ]
           }
