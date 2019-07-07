@@ -74,32 +74,6 @@
           }
       },
       {
-        "id": "godaddy-auth-scheme-token",
-        "description": "GoDaddy Authentication Scheme",
-        "type": "ms.vss-endpoint.service-endpoint-auth-scheme",
-        "targets": [
-            "ms.vss-endpoint.endpoint-auth-schemes"
-        ],
-        "properties":{
-            "name": "GoDaddyAuth",
-            "displayName": "GoDaddy Token Based Authentication",
-            "inputDescriptors": [
-                {
-                    "id": "apitoken",
-                    "name": "API Token",
-                    "description": "API Token for connection to endpoint",
-                    "inputMode": "textbox",
-                    "isConfidential": true,
-                    "validation": {
-                        "isRequired": true,
-                        "dataType":"string",
-                        "maxLength": 300
-                    }
-                }
-            ]
-        }
-      },
-      {
           "id": "godaddy-service-endpoint",
           "description": "GoDaddy Service Endpoint",
           "type": "ms.vss-endpoint.service-endpoint-type",
@@ -114,7 +88,22 @@
             },
             "authenticationSchemes": [
                 {
-                    "type": "ms.vss-endpoint.service-endpoint-auth-scheme"
+                    "type": "ms.vss-endpoint.service-endpoint-auth-scheme",
+                    "displayName": "GoDaddy Token Based Authentication",
+                    "inputDescriptors": [
+                        {
+                            "id": "apitoken",
+                            "name": "API Token",
+                            "description": "API Token for connection to endpoint",
+                            "inputMode": "textbox",
+                            "isConfidential": true,
+                            "validation": {
+                                "isRequired": true,
+                                "dataType":"string",
+                                "maxLength": 300
+                            }
+                        }
+                    ]
                 }
             ]
           }
