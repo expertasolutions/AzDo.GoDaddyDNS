@@ -15,6 +15,7 @@ var http = require('http');
 
 try {
     var goDaddyEndpoint = tl.getInput("godaddyAccount", true);
+    var goDaddyAuth = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "Authorization", false);
     var goDaddyToken = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apitoken", false);
     var goDaddySecret = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apisecret", false);
 
@@ -23,6 +24,7 @@ try {
     var alias = tl.getInput("alias", true);
     var actionType = tl.getInput("actionType", true);
     
+    console.log("GoDaddy Auth: " + goDaddyAuth);
     console.log("GoDaddy API Token: " + goDaddyToken);
     console.log("GoDaddy API Secret: " + goDaddySecret);
 
