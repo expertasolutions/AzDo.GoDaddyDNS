@@ -90,6 +90,12 @@
                 {
                     "type": "ms.vss-endpoint.endpoint-auth-scheme-token",
                     "displayName": "GoDaddy Token Based Authentication",
+                    "headers": [
+                        {
+                            "name": "Authorization",
+                            "value": "{{endpoint.apitoken}}:{{endpoint:apisecret}}"
+                        }
+                    ]
                     "inputDescriptors": [
                         {
                             "id": "apitoken",
