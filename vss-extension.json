@@ -74,42 +74,6 @@
           }
       },
       {
-            "id": "endpoint-auth-scheme-custom",
-            "description": "Jesse's custom scheme.",
-            "type": "ms.vss-endpoint.service-endpoint-auth-scheme",
-            "targets": [
-                "ms.vss-endpoint.endpoint-auth-schemes"
-            ],
-            "properties": {
-                "name": "CustomAuthScheme",
-                "displayName": "Jesse's Custom Authentication Scheme",
-                "inputDescriptors": [
-                    {
-                        "id": "email",
-                        "name": "Email",
-                        "description": "Email.",
-                        "inputMode": "textbox",
-                        "isConfidential": false,
-                        "validation": {
-                            "isRequired": true,
-                            "dataType": "string"
-                        }
-                    },
-                    {
-                        "id": "passphrase",
-                        "name": "Passphrase",
-                        "description": "Passphrase.",
-                        "inputMode": "passwordbox",
-                        "isConfidential": true,
-                        "validation": {
-                            "isRequired": true,
-                            "dataType": "string"
-                        }
-                    }
-                ]
-            }
-        },
-      {
         "id": "godaddy-auth-scheme-token",
         "description": "GoDaddy Authentication Scheme",
         "type": "ms.vss-endpoint.service-endpoint-auth-scheme",
@@ -150,7 +114,7 @@
             },
             "authenticationSchemes": [
                 {
-                    "type": "endpoint-auth-scheme-custom"
+                    "type": "ms.vss-endpoint.service-endpoint-auth-scheme"
                 }
             ]
           }
