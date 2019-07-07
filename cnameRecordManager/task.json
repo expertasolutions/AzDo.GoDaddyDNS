@@ -15,33 +15,12 @@
     "instanceNameFormat": "Manage CNAME Dns record",
     "groups": [
         {
-          "name": "subazadadmin",
-          "displayName": "GoDaddy account details",
-          "isExpanded": true
-        },
-        {
             "name": "dnszonedetail",
             "displayName": "GoDaddy DNS zone details",
             "isExpanded": true
         }
     ],
     "inputs": [
-        {
-          "name": "godaddyKey",
-          "type": "string",
-          "label": "GoDaddy Key",
-          "defaultValue": "",
-          "required": true,
-          "groupName": "subazadadmin"
-        },
-        {
-          "name": "godaddySecret",
-          "type": "string",
-          "label": "GoDaddy Secret",
-          "defaultValue": "",
-          "required": true,
-          "groupName": "subazadadmin"
-        },
         {
           "name": "godaddyAccount",
           "type": "connectedService:godaddy-serviceendpoint",
