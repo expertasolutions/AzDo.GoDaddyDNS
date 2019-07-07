@@ -75,12 +75,13 @@
       },
       {
           "id": "godaddy-serviceEndpoint",
+          "description": "GoDaddy Service Endpoint",
           "type": "ms-vss-endpoint",
           "targets": [
-              "ms.vss-endpoint.service-endpoint-types"
+              "ms.vss-endpoint.service-endpoint-type"
           ],
           "properties": {
-            "name": "godaddy",
+            "name": "godaddy-serviceendpoint",
             "displayName": "GoDaddy API endpoint",
             "url": {
                 "displayName": "API Url"
