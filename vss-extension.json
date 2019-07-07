@@ -122,9 +122,6 @@
             "authenticationSchemes": [
                 {
                     "type": "ms.vss-endpoint.endpoint-auth-scheme-token"
-                },
-                {
-                    "type": "ms.vss-endpoint.godaddy-auth-scheme-token"
                 }
             ]
           }
