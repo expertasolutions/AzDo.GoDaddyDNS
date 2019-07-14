@@ -51,7 +51,6 @@ try {
         });
 
         response.on('end', function(){
-            console.log('in end function')
             console.log('DATA: ' + body);
 
             var parsed = JSON.parse(body);
