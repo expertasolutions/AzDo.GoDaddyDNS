@@ -45,7 +45,6 @@ try {
     http.request(options, function(response){
         console.log('STATUS: ' + response.statusCode);
         console.log('HEADERS: ' + JSON.stringify(response.headers));
-        console.log('CONTENT: ' + JSON.stringify(response.content));
         var body = ''
         response.on('data', function(data){
             console.log('BODY: ' + data);
