@@ -30,6 +30,8 @@ try {
     console.log("CName: " + cname);
     console.log("Alias: " + alias);
 
+    var authToken = goDaddyToken + ":" + goDaddySecret;
+    console.log(authToken);
     var url = "api.ote-godaddy.com";
     var options = {
         host: url,
@@ -37,10 +39,10 @@ try {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
-            "Authorization": goDaddyToken + ":" + goDaddySecret
+            "Authorization": authToken
         }
     }
-    
+    console.log(options);
     http.request(options, function(response){
         console.log('STATUS: ' + response.statusCode);
         console.log('HEADERS: ' + JSON.stringify(response.headers));
