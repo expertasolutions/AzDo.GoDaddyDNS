@@ -32,7 +32,7 @@ try {
 
     var authToken = "sso-key " + goDaddyToken + ":" + goDaddySecret;
     console.log(authToken);
-    var url = "api.ote-godaddy.com";
+    var url = "api.godaddy.com";
     var options = {
         host: url,
         path: '/v1/domains/' + domainName,
