@@ -30,7 +30,7 @@ try {
     console.log("CName: " + cname);
     console.log("Alias: " + alias);
 
-    var authToken = goDaddyToken + ":" + goDaddySecret;
+    var authToken = "sso-key " + goDaddyToken + ":" + goDaddySecret;
     console.log(authToken);
     var url = "api.ote-godaddy.com";
     var options = {
