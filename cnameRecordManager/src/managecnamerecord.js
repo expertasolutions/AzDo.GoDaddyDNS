@@ -58,17 +58,11 @@ try {
     
         console.log(options);
         const req = http.request(options, response => {
-            console.log('STATUS: ' + response.statusCode);
-            console.log('HEADERS: ' + JSON.stringify(response.headers));
-            
-            response.on('data', d => {
-                process.stdout.write(d);
-            });
+            //console.log('STATUS: ' + response.statusCode);
+            //console.log('HEADERS: ' + JSON.stringify(response.headers));
         });
     
         req.on('error', error => {
-            console.log('****** in error ******');
-            console.log(error);
             tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
         });
     
@@ -90,14 +84,15 @@ try {
             var body = '';
 
             r.on('data', d => {
-                process.stdout.write(d);
+                //process.stdout.write(d);
                 body += d;
             });
               
             r.on('end', () => {
                 console.log(body);
                 var cnameList = JSON.parse(body);
-                const index = cnameList.indexOf(cname, 0);
+                const index = cnameList.findIndex(x=> x.name == cname);
+                console.log(index);
                 if(index > -1){
                    cnameList.slice(index, 1);
                 }
@@ -105,8 +100,6 @@ try {
             });
             
         }).on("error", err => {
-            console.log('****** in error ******');
-            console.log(err);
             tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
         }).end();
     }
