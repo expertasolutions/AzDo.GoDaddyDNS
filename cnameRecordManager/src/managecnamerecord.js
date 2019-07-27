@@ -43,6 +43,24 @@ try {
         "type": "CNAME",
         "ttl": ttl
     }]);
+
+    var listOptions = {
+        host: goDaddyApiUrl,
+        path: '/v1/domains/' + domainName + '/records/CNAME',
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": authToken
+        }
+    };
+    
+    const listRequest = http.request(listOptions, r => {
+        r.on('data', d => {
+            process.stdout.write(d);
+        });
+    });
+
+    listRequest.end();
     
     var options = {
         host: goDaddyApiUrl,
@@ -66,6 +84,7 @@ try {
     });
 
     req.on('error', error => {
+        console.log('****** in error ******');
         console.log(error);
         tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
     });
