@@ -75,7 +75,7 @@
         },
         {
           "name":"ttl",
-          "type":"string",
+          "type":"integer",
           "label": "TTL (seconds)",
           "required": true,
           "groupName":"dnszonedetail",

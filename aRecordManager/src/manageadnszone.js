@@ -87,6 +87,7 @@ try {
                 console.log(body);
                 var aList = JSON.parse(body);
                 const index = aList.findIndex(x=> x.name == aName);
+                console.log(index);
                 if(index > -1){
                    aList.splice(index, 1);
                 }
