@@ -38,7 +38,7 @@ try {
     const data = JSON.stringify([{
         "data": alias,
         "name": cname,
-        "type": "cname",
+        "type": "CNAME",
     }]);
     
     var options = {
