@@ -57,10 +57,7 @@ try {
         };
     
         console.log(options);
-        const req = http.request(options, response => {
-            //console.log('STATUS: ' + response.statusCode);
-            //console.log('HEADERS: ' + JSON.stringify(response.headers));
-        });
+        const req = http.request(options, response => { });
     
         req.on('error', error => {
             tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
@@ -70,7 +67,7 @@ try {
         req.end();
 
     } else if(actionType === "remove") {
-
+        // List the current CNAME Records
         var listOptions = {
             host: goDaddyApiUrl,
             path: '/v1/domains/' + domainName + '/records/CNAME',
@@ -95,6 +92,35 @@ try {
                    cnameList.splice(index, 1);
                 }
                 console.log(JSON.stringify(cnameList));
+
+                // Update All CNAME records without old one
+                const data = JSON.stringify([{
+                    "data": alias,
+                    "name": cname,
+                    "type": "CNAME",
+                    "ttl": ttl
+                }]);
+
+                var options = {
+                    host: goDaddyApiUrl,
+                    path: '/v1/domains/' + domainName + '/records/CNAME/' + cname,
+                    method: 'PUT',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Content-Length": data.length,
+                        "Authorization": authToken
+                    }
+                };
+
+                console.log(options);
+                const req = http.request(options, response => { });
+            
+                req.on('error', error => {
+                    tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
+                });
+            
+                req.write(data);
+                req.end();
             });
             
         }).on("error", err => {
