@@ -96,12 +96,12 @@ try {
               
             r.on('end', () => {
                 console.log(body);
-//                var cnameList = JSON.parse(body);
-//                const index = cnameList.indexOf(cname, 0);
-//                if(index > -1){
-//                   cnameList.slice(index, 1);
-//                }
-//                console.log(JSON.stringify(cnameList));
+                var cnameList = JSON.parse(body);
+                const index = cnameList.indexOf(cname, 0);
+                if(index > -1){
+                   cnameList.slice(index, 1);
+                }
+                console.log(JSON.stringify(cnameList));
             });
             
         }).on("error", err => {
