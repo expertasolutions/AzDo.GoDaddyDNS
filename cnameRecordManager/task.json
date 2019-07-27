@@ -66,6 +66,15 @@
           "helpMarkDown":"",
           "groupName": "dnszonedetail",
           "visibleRule": "actionType = createUpdate"
+        },
+        {
+          "name": "ttl",
+          "type": "string",
+          "label": "TTL (seconds)",
+          "defaultValue": 3600,
+          "required": true,
+          "groupName": "dnszonedetail",
+          "visibleRule": "actionType = createUpdate"
         }
     ],
     "dataSourceBindings" : [

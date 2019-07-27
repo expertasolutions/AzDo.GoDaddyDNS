@@ -23,6 +23,7 @@ try {
     var cname = tl.getInput("cname", true);
     var alias = tl.getInput("alias", true);
     var actionType = tl.getInput("actionType", true);
+    var ttl = tl.getInput("ttl", true);
     
     console.log("GoDaddy API URL: " + goDaddyApiUrl);
     console.log("GoDaddy API Token: " + goDaddyToken);
@@ -32,6 +33,7 @@ try {
     console.log("DomainName: " + domainName);
     console.log("CName: " + cname);
     console.log("Alias: " + alias);
+    console.log("TTL: " + ttl);
 
     var authToken = "sso-key " + goDaddyToken + ":" + goDaddySecret;
     
