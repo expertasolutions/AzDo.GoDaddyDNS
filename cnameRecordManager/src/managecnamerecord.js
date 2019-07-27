@@ -86,20 +86,24 @@ try {
             }
         };
         var body = '';
-        const listRequest = http.request(listOptions, r => {
+        http.request(listOptions, r => {
             r.on('data', d => {
+                console.log(d);
                 body += d;
             });
-        });
-        listRequest.end();
-        console.log(body);
 
-        var cnameList = JSON.parse(body);
-        const index = cnameList.indexOf(cname, 0);
-        if(index > -1){
-            cnameList.slice(index, 1);
-        }
-        console.log(JSON.stringify(cnameList));
+            r.on('end', () => {
+                var cnameList = JSON.parse(body);
+                const index = cnameList.indexOf(cname, 0);
+                if(index > -1){
+                    cnameList.slice(index, 1);
+                }
+                console.log(JSON.stringify(cnameList));
+            });
+        }).on("error", err => {
+            console.log(err);
+            tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
+        });
     }
 
 } catch (err) {
