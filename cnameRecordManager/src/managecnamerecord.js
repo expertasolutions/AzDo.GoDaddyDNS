@@ -94,7 +94,7 @@ try {
                 const index = cnameList.findIndex(x=> x.name == cname);
                 console.log(index);
                 if(index > -1){
-                   cnameList.slice(index, 1);
+                   cnameList = cnameList.slice(index, 1);
                 }
                 console.log(JSON.stringify(cnameList));
             });
