@@ -69,7 +69,7 @@
         },
         {
           "name": "ttl",
-          "type": "string",
+          "type": "integer",
           "label": "TTL (seconds)",
           "defaultValue": 3600,
           "required": true,
