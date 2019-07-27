@@ -46,7 +46,7 @@ try {
     
     var options = {
         host: goDaddyApiUrl,
-        path: '/v1/domains/' + domainName + '/records/cname/' + alias,
+        path: '/v1/domains/' + domainName + '/records/CNAME/' + alias,
         method: 'PUT',
         headers: {
             "Content-Type": "application/json",
