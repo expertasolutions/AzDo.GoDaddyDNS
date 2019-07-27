@@ -39,6 +39,7 @@ try {
         "data": alias,
         "name": cname,
         "type": "CNAME",
+        "ttl": 3600
     }]);
     
     var options = {
