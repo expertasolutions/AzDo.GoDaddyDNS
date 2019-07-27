@@ -23,7 +23,7 @@ try {
     var cname = tl.getInput("cname", true);
     var alias = tl.getInput("alias", true);
     var actionType = tl.getInput("actionType", true);
-    var ttl = tl.getInput("ttl", true);
+    var ttl = +(tl.getInput("ttl", true));
     
     console.log("GoDaddy API URL: " + goDaddyApiUrl);
     console.log("GoDaddy API Token: " + goDaddyToken);
@@ -41,7 +41,7 @@ try {
         "data": alias,
         "name": cname,
         "type": "CNAME",
-        "ttl": 3600
+        "ttl": ttl
     }]);
     
     var options = {
