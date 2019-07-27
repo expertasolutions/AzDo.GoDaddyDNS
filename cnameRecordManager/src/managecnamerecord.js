@@ -47,7 +47,7 @@ try {
     var options = {
         host: goDaddyApiUrl,
         path: '/v1/domains/' + domainName + '/records',
-        method: 'PATCH',
+        method: 'PUT',
         headers: {
             "Content-Type": "application/json",
             "Content-Length": data.length,
