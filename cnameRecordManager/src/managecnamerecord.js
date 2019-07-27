@@ -15,7 +15,7 @@ var http = require('https');
 try {
     var goDaddyEndpoint = tl.getInput("godaddyAccount", true);
     var url = tl.getEndpointUrl(goDaddyEndpoint, true);
-    var goDaddyApiUrl = url.replace("http://", "").replace("https://", "");
+    var goDaddyApiUrl = url.replace("http://", "").replace("https://", "").replace("/", "");
     var goDaddyToken = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apitoken", false);
     var goDaddySecret = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apisecret", false);
 
