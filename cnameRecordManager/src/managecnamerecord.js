@@ -75,7 +75,7 @@ try {
         req.write(data);
         req.end();
 
-    } else if(actionType === "delete") {
+    } else if(actionType === "remove") {
         var listOptions = {
             host: goDaddyApiUrl,
             path: '/v1/domains/' + domainName + '/records/CNAME',
