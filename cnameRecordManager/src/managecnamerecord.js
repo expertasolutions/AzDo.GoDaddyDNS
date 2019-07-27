@@ -76,6 +76,7 @@ try {
         req.end();
 
     } else if(actionType === "remove") {
+
         var listOptions = {
             host: goDaddyApiUrl,
             path: '/v1/domains/' + domainName + '/records/CNAME',
@@ -88,10 +89,10 @@ try {
         var body = '';
         http.request(listOptions, r => {
             r.on('data', d => {
-                console.log(d);
+                process.stdout.write(d);
                 body += d;
             });
-
+            /*    
             r.on('end', () => {
                 var cnameList = JSON.parse(body);
                 const index = cnameList.indexOf(cname, 0);
@@ -100,7 +101,9 @@ try {
                 }
                 console.log(JSON.stringify(cnameList));
             });
+            */
         }).on("error", err => {
+            console.log('****** in error ******');
             console.log(err);
             tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
         });
