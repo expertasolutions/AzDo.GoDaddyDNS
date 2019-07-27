@@ -108,7 +108,7 @@ try {
             console.log('****** in error ******');
             console.log(err);
             tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
-        });
+        }).end();
     }
 
 } catch (err) {
