@@ -87,7 +87,6 @@ try {
                 console.log(body);
                 var aList = JSON.parse(body);
                 const index = aList.findIndex(x=> x.name.toLowerCase() == aName.toLowerCase());
-                console.log(index);
                 if(index > -1){
                    aList.splice(index, 1);
                 }
