@@ -93,6 +93,7 @@ try {
 
                 // Update All A records without old one
                 const data = JSON.stringify(aList);
+                console.log("show data:");
                 console.log(data);
 
                 var options = {
@@ -106,12 +107,14 @@ try {
                     }
                 };
 
-                const req = http.request(options, response => { });
+                const req = http.request(options, response => { 
+                    console.log(response.statusCode);
+                });
             
                 req.on('error', error => {
                     tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
                 });
-            
+                
                 req.write(data);
                 req.end();
             });
