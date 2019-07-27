@@ -94,16 +94,11 @@ try {
                 console.log(JSON.stringify(cnameList));
 
                 // Update All CNAME records without old one
-                const data = JSON.stringify([{
-                    "data": alias,
-                    "name": cname,
-                    "type": "CNAME",
-                    "ttl": ttl
-                }]);
+                const data = JSON.stringify(cnameList);
 
                 var options = {
                     host: goDaddyApiUrl,
-                    path: '/v1/domains/' + domainName + '/records/CNAME/' + cname,
+                    path: '/v1/domains/' + domainName + '/records/CNAME/',
                     method: 'PUT',
                     headers: {
                         "Content-Type": "application/json",
