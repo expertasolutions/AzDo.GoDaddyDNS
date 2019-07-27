@@ -41,12 +41,12 @@ try {
         "data": alias,
         "name": cname,
         "type": "CNAME",
-        "ttl": 3600
+        "ttl": ttl
     }]);
     
     var options = {
         host: goDaddyApiUrl,
-        path: '/v1/domains/' + domainName + '/records/CNAME/' + alias,
+        path: '/v1/domains/' + domainName + '/records/CNAME/' + cname,
         method: 'PUT',
         headers: {
             "Content-Type": "application/json",
