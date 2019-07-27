@@ -36,61 +36,71 @@ try {
     console.log("TTL: " + ttl);
 
     var authToken = "sso-key " + goDaddyToken + ":" + goDaddySecret;
-    
-    const data = JSON.stringify([{
-        "data": alias,
-        "name": cname,
-        "type": "CNAME",
-        "ttl": ttl
-    }]);
 
-    var listOptions = {
-        host: goDaddyApiUrl,
-        path: '/v1/domains/' + domainName + '/records/CNAME',
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": authToken
-        }
-    };
+    if(actionType === "createUpdate") {
+        const data = JSON.stringify([{
+            "data": alias,
+            "name": cname,
+            "type": "CNAME",
+            "ttl": ttl
+        }]);
+
+        var options = {
+            host: goDaddyApiUrl,
+            path: '/v1/domains/' + domainName + '/records/CNAME/' + cname,
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                "Content-Length": data.length,
+                "Authorization": authToken
+            }
+        };
     
-    const listRequest = http.request(listOptions, r => {
-        r.on('data', d => {
-            process.stdout.write(d);
+        console.log(options);
+        const req = http.request(options, response => {
+            console.log('STATUS: ' + response.statusCode);
+            console.log('HEADERS: ' + JSON.stringify(response.headers));
+            
+            response.on('data', d => {
+                process.stdout.write(d);
+            });
         });
-    });
-
-    listRequest.end();
     
-    var options = {
-        host: goDaddyApiUrl,
-        path: '/v1/domains/' + domainName + '/records/CNAME/' + cname,
-        method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-            "Content-Length": data.length,
-            "Authorization": authToken
-        }
-    };
-
-    console.log(options);
-    const req = http.request(options, response => {
-        console.log('STATUS: ' + response.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(response.headers));
-        
-        response.on('data', d => {
-            process.stdout.write(d);
+        req.on('error', error => {
+            console.log('****** in error ******');
+            console.log(error);
+            tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
         });
-    });
+    
+        req.write(data);
+        req.end();
 
-    req.on('error', error => {
-        console.log('****** in error ******');
-        console.log(error);
-        tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
-    });
+    } else if(actionType === "delete") {
+        var listOptions = {
+            host: goDaddyApiUrl,
+            path: '/v1/domains/' + domainName + '/records/CNAME',
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": authToken
+            }
+        };
+        var body = '';
+        const listRequest = http.request(listOptions, r => {
+            r.on('data', d => {
+                body += d;
+            });
+        });
+        listRequest.end();
+        console.log(body);
 
-    req.write(data);
-    req.end();
+        var cnameList = JSON.parse(body);
+        const index = cnameList.indexOf(cname, 0);
+        if(index > -1){
+            cnameList.slice(index, 1);
+        }
+        console.log(JSON.stringify(cnameList));
+    }
 
 } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message || 'run() failed');
