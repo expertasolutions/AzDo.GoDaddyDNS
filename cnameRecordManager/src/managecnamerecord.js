@@ -14,7 +14,6 @@ var http = require('https');
 
 try {
     var goDaddyEndpoint = tl.getInput("godaddyAccount", true);
-
     var url = tl.getEndpointUrl(goDaddyEndpoint, true);
     var goDaddyApiUrl = url.replace("http://", "").replace("https://", "");
     var goDaddyToken = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apitoken", false);
@@ -35,32 +34,40 @@ try {
     console.log("Alias: " + alias);
 
     var authToken = "sso-key " + goDaddyToken + ":" + goDaddySecret;
+    
+    const data = JSON.stringify([{
+        "data": alias,
+        "name": cname,
+        "type": "cname",
+    }]);
+    
     var options = {
         host: goDaddyApiUrl,
-        path: '/v1/domains/' + domainName,
-        method: 'GET',
+        path: '/v1/domains/' + domainName + '/records',
+        method: 'PATCH',
         headers: {
             "Content-Type": "application/json",
+            "Content-Length": data.length,
             "Authorization": authToken
         }
-    }
+    };
+
     console.log(options);
-    http.request(options, function(response){
+    const req = http.request(options, response => {
         console.log('STATUS: ' + response.statusCode);
         console.log('HEADERS: ' + JSON.stringify(response.headers));
-        var body = ''
-        response.on('data', function(data){
-            console.log('BODY: ' + data);
-            body += data;
+        
+        response.on('data', d => {
+            process.stdout.write(d);
         });
+    });
 
-        response.on('end', function(){
-            console.log('DATA: ' + body);
+    req.on('error', error => {
+        console.log(error);
+    });
 
-            var parsed = JSON.parse(body);
-            console.log("end.body" + parsed);
-        })
-    }).end();
+    req.write(data);
+    req.end();
 
 } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message || 'run() failed');
