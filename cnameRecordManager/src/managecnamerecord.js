@@ -86,22 +86,24 @@ try {
                 "Authorization": authToken
             }
         };
-        var body = '';
         http.request(listOptions, r => {
+            var body = '';
+
             r.on('data', d => {
                 process.stdout.write(d);
                 body += d;
             });
-            /*    
+              
             r.on('end', () => {
-                var cnameList = JSON.parse(body);
-                const index = cnameList.indexOf(cname, 0);
-                if(index > -1){
-                    cnameList.slice(index, 1);
-                }
-                console.log(JSON.stringify(cnameList));
+                console.log(body);
+//                var cnameList = JSON.parse(body);
+//                const index = cnameList.indexOf(cname, 0);
+//                if(index > -1){
+//                   cnameList.slice(index, 1);
+//                }
+//                console.log(JSON.stringify(cnameList));
             });
-            */
+            
         }).on("error", err => {
             console.log('****** in error ******');
             console.log(err);
