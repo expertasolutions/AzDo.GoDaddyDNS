@@ -84,7 +84,6 @@ try {
             var body = '';
 
             r.on('data', d => {
-                //process.stdout.write(d);
                 body += d;
             });
               
@@ -93,7 +92,7 @@ try {
                 var cnameList = JSON.parse(body);
                 const index = cnameList.findIndex(x=> x.name == cname);
                 if(index > -1){
-                   cnameList = cnameList.slice(index, 0);
+                   cnameList.splice(index, 1);
                 }
                 console.log(JSON.stringify(cnameList));
             });
