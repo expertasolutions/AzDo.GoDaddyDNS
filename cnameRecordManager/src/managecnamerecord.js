@@ -56,7 +56,6 @@ try {
             }
         };
     
-        console.log(options);
         const req = http.request(options, response => { });
     
         req.on('error', error => {
@@ -85,13 +84,11 @@ try {
             });
               
             r.on('end', () => {
-                console.log(body);
                 var cnameList = JSON.parse(body);
                 const index = cnameList.findIndex(x=> x.name == cname);
                 if(index > -1){
                    cnameList.splice(index, 1);
                 }
-                console.log(JSON.stringify(cnameList));
 
                 // Update All CNAME records without old one
                 const data = JSON.stringify(cnameList);
@@ -107,7 +104,6 @@ try {
                     }
                 };
 
-                console.log(options);
                 const req = http.request(options, response => { });
             
                 req.on('error', error => {
