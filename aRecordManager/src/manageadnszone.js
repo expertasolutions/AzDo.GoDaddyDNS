@@ -109,6 +109,9 @@ try {
 
                 const req = http.request(options, response => { 
                     console.log(response.statusCode);
+                    response.on('data', dt => {
+                        console.log(dt);
+                    });
                 });
             
                 req.on('error', error => {
@@ -123,7 +126,6 @@ try {
             tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
         }).end();
     }
-    
 } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message || 'run() failed');
 }

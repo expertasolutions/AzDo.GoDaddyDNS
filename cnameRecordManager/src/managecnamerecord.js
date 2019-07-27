@@ -118,7 +118,6 @@ try {
             tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
         }).end();
     }
-
 } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message || 'run() failed');
 }
