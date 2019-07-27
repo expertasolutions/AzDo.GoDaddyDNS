@@ -84,6 +84,7 @@ try {
             });
               
             r.on('end', () => {
+                console.log(body);
                 var aList = JSON.parse(body);
                 const index = aList.findIndex(x=> x.name == aName);
                 if(index > -1){
@@ -92,6 +93,7 @@ try {
 
                 // Update All A records without old one
                 const data = JSON.stringify(aList);
+                console.log(data);
 
                 var options = {
                     host: goDaddyApiUrl,
