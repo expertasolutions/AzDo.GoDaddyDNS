@@ -19,9 +19,7 @@
     "windows"
   ],
   "links":{
-      "support": { 
-          "uri": "https://github.com/expertasolutions/GoDaddyDns/issues"
-      }
+      "support": { "uri": "https://github.com/expertasolutions/GoDaddyDns/issues" }
   },
   "repository": {
     "type" : "git",
