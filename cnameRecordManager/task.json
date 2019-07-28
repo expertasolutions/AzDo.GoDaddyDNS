@@ -26,7 +26,8 @@
           "type": "connectedService:godaddy-serviceendpoint",
           "label": "GoDaddy service/server endpoint",
           "required": true,
-          "defaultValue": ""
+          "defaultValue": "",
+          "groupName": "dnszonedetail"
         },
         {
           "name": "actionType",

@@ -84,7 +84,6 @@ try {
             });
               
             r.on('end', () => {
-                console.log(body);
                 var aList = JSON.parse(body);
                 const index = aList.findIndex(x=> x.name.toLowerCase() == aName.toLowerCase());
                 if(index > -1){
@@ -109,9 +108,7 @@ try {
 
                 const req = http.request(options, response => { 
                     console.log(response.statusCode);
-                    response.on('data', dt => {
-                        console.log(dt);
-                    });
+                    response.on('data', dt => { });
                 });
             
                 req.on('error', error => {
