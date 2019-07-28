@@ -12,7 +12,7 @@ This task package is compatible with:
 - Any private build agent with Powershell and Azure CLI installed
 
 ## Service Endpoint
-![ServiceEndpoint](img/v0/serviceEndpoint_v0.jpg)
+![ServiceEndpoint](img/v0/ServiceEndpoint_v0.jpg)
 
 ## A Record Manager (required parameters)
 ![ARecord_Task_inputs](img/v0/ARecord_v0.jpg)
