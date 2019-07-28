@@ -9,11 +9,6 @@ Tasks provides:
 ## Note
 Due to some GoDaddy limitation, the delete functionnality only works properly if at least One DNS Records is existing on the desired record type.
 
-This task package is compatible with:
-- Hosted macOS build agent (supported)
-- Hosted VS2017 (supported)
-- Any private build agent with Powershell and Azure CLI installed
-
 ## Service Endpoint
 ![ServiceEndpoint](img/v0/ServiceEndpoint_v0.jpg)
 
@@ -22,7 +17,3 @@ This task package is compatible with:
 
 ## CNAME Record Manager (required parameters)
 ![CNAMERecord_Task_inputs](img/v0/cnameRecord_v0.jpg)
-
-# Requirements
-
-- Azure CLI must be installed on the build agent
