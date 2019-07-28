@@ -6,7 +6,7 @@ Tasks provides:
 - A Record Manager
 - CName Record Manager
 
-### Note
+## Note
 Due to some GoDaddy limitation, the delete functionnality only works properly if at least One DNS Records is existing on the desired record type.
 
 This task package is compatible with:
