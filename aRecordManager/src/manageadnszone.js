@@ -66,29 +66,6 @@ try {
         req.end();
 
     } else if(actionType === "remove") {
-
-        var deleteOptions = {
-            host: goDaddyApiUrl,
-            path: '/v1/domains/' + domainName + '/records/A/' + aName,
-            method: 'DELETE',
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": authToken
-            }
-        };
-
-        http.request(deleteOptions, r => {
-            console.log(r.statusCode);
-            r.on('error', err => {
-                console.log(err);
-            });
-
-            r.on('data', d => {
-                console.log(d);
-            });
-
-        }).end();
-        /*
         // List the current A Records
         var listOptions = {
             host: goDaddyApiUrl,
@@ -148,7 +125,6 @@ try {
         }).on("error", err => {
             tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
         }).end();
-        */
     }
 } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message || 'run() failed');
