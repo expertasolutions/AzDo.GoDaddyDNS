@@ -78,6 +78,7 @@ try {
         };
 
         http.request(deleteOptions, r => {
+            console.log(r.statusCode);
             r.on('error', err => {
                 console.log(err);
             });
