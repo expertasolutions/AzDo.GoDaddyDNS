@@ -43,7 +43,7 @@
   "badges": [
         {
             "href":"https://dev.azure.com/experta/ExpertaSolutions/_build/latest?definitionId=214",
-            "uri":"https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/Azure DevOps Extensions/GitHub - ExpertaSolutions/GitHub-GoDaddyDNSZone-CI?branchName=master",
+            "uri":"https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/Azure%20DevOps%20Extensions/GitHub%20-%20ExpertaSolutions/GitHub-GoDaddyDNSZone-CI?branchName=master",
             "description": "Master build"
         },
         {
