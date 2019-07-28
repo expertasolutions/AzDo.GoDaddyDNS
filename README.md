@@ -11,11 +11,14 @@ This task package is compatible with:
 - Hosted VS2017 (supported)
 - Any private build agent with Powershell and Azure CLI installed
 
+## Service Endpoint
+![ServiceEndpoint](img/v0/serviceEndpoint_v0.jpg)
+
 ## A Record Manager (required parameters)
-![ARecord_Task_inputs](img/ARecord_v4.jpg)
+![ARecord_Task_inputs](img/v0/ARecord_v0.jpg)
 
 ## CNAME Record Manager (required parameters)
-![CNAMERecord_Task_inputs](img/cnameRecord_v4.jpg)
+![CNAMERecord_Task_inputs](img/v0/cnameRecord_v0.jpg)
 
 # Requirements
 
