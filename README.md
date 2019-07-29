@@ -6,9 +6,6 @@ Tasks provides:
 - A Record Manager
 - CName Record Manager
 
-## Note
-Due to some GoDaddy limitation, the delete functionnality only works properly if at least One DNS Records is existing on the desired record type.
-
 ## Service Endpoint
 ![ServiceEndpoint](img/v0/ServiceEndpoint_v0.jpg)
 
@@ -17,3 +14,6 @@ Due to some GoDaddy limitation, the delete functionnality only works properly if
 
 ## CNAME Record Manager (required parameters)
 ![CNAMERecord_Task_inputs](img/v0/cnameRecord_v0.jpg)
+
+## Note
+Due to some GoDaddy limitation, the delete functionnality only works properly if at least One DNS Records is existing on the desired record type.
