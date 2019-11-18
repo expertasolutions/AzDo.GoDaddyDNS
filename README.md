@@ -16,4 +16,4 @@ Tasks provides:
 ![CNAMERecord_Task_inputs](img/v0/cnameRecord_v0.jpg)
 
 ## Note
-Due to some GoDaddy limitation, the delete functionnality only works properly if at least One DNS Records is existing on the desired record type.
+Due to some GoDaddy limitation, the delete functionnality only works properly if at least One DNS Records is existing on the desired record type
