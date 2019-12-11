@@ -7,7 +7,8 @@ name: GoDaddyDNS-v0.$(date:yy)$(DayOfYear).$(rev:r)-$(Build.SourceBranchName)
 trigger:
 - master
 - issue*
-
+workspace:
+    clean: all
 pr:
 - master
 
