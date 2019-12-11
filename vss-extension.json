@@ -42,8 +42,8 @@
   ],
   "badges": [
         {
-            "href":"https://dev.azure.com/experta/Community/_build?definitionId=222",
-            "uri":"https://dev.azure.com/experta/Community/_apis/build/status/CI-GitHub-GoDaddyDNSZone?branchName=master",
+            "href":"https://dev.azure.com/experta/Community/_build?definitionId=237",
+            "uri":"https://dev.azure.com/experta/Community/_apis/build/status/expertasolutions.GoDaddyDNS?branchName=master",
             "description": "Master build"
         },
         {
