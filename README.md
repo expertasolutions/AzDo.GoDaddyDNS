@@ -1,8 +1,10 @@
-## Objective
+# Objective
 
 Tasks packages to manage GoDaddy DNS Zone from Azure DevOps release pipeline.
 
-Tasks provides:
+![MasterBuildStatus](https://dev.azure.com/experta/Community/_apis/build/status/expertasolutions.GoDaddyDNS?branchName=master)
+
+## Tasks provides:
 - A Record Manager
 - CName Record Manager
 
