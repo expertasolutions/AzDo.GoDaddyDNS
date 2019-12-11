@@ -16,8 +16,6 @@ pool:
   name: MacNetCorePools
   demands: npm
 
-#Your build pipeline references an undefined variable named ‘buildExtractor.fullVersion’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
-
 steps:
 - task: VersionExtractor@4
   name: buildExtractor
