@@ -48,6 +48,7 @@ try {
         }
     };
     http.request(domainRequest, r => {
+        console.log(r.statusCode);
         var dBody = '';
         r.on('data', d=> {
             dBody += d;
