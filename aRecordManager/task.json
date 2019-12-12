@@ -94,7 +94,7 @@
     "outputVariables" : [],
     "execution": {
         "Node": {
-          "target": "src//manageadnszone.js",
+          "target": "manageadnszone.js",
           "argumentFormat": ""
         }
       }

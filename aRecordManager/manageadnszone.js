@@ -20,34 +20,53 @@ try {
     var goDaddySecret = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apisecret", false);
 
     var domainName = tl.getInput("domainName", true);
-    var cname = tl.getInput("cname", true);
-    var alias = tl.getInput("alias", true);
+    var aName = tl.getInput("aName", true);
+    var ipAddress = tl.getInput("ipAddress", true);
     var actionType = tl.getInput("actionType", true);
     var ttl = +(tl.getInput("ttl", true));
-    
+
     console.log("GoDaddy API URL: " + goDaddyApiUrl);
     console.log("GoDaddy API Token: " + goDaddyToken);
     console.log("GoDaddy API Secret: " + goDaddySecret);
 
     console.log("ActionType: " + actionType);
     console.log("DomainName: " + domainName);
-    console.log("CName: " + cname);
-    console.log("Alias: " + alias);
+    console.log("A: " + aName);
+    console.log("IPAddress: " + ipAddress);
     console.log("TTL: " + ttl);
 
     var authToken = "sso-key " + goDaddyToken + ":" + goDaddySecret;
 
+    // Check if the domain exists for the current shopper
+    let domainRequest = {
+        host: goDaddyApiUrl,
+        path: '/v1/domains/' + domainName,
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": authToken
+        }
+    };
+    http.request(domainRequest, r => {
+        if(r.statusCode === 404){
+            tl.setResult(tl.TaskResult.Failed, "Domain Name: '" + domainName + "' not found");
+        }
+    }).on('error', err => {
+        tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
+    }).end();
+    // end of the check
+
     if(actionType === "createUpdate") {
         const data = JSON.stringify([{
-            "data": alias,
-            "name": cname,
-            "type": "CNAME",
+            "data": ipAddress,
+            "name": aName,
+            "type": "A",
             "ttl": ttl
         }]);
 
         var options = {
             host: goDaddyApiUrl,
-            path: '/v1/domains/' + domainName + '/records/CNAME/' + cname,
+            path: '/v1/domains/' + domainName + '/records/A/' + aName,
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -66,10 +85,10 @@ try {
         req.end();
 
     } else if(actionType === "remove") {
-        // List the current CNAME Records
+        // List the current A Records
         var listOptions = {
             host: goDaddyApiUrl,
-            path: '/v1/domains/' + domainName + '/records/CNAME',
+            path: '/v1/domains/' + domainName + '/records/A',
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
@@ -84,18 +103,20 @@ try {
             });
               
             r.on('end', () => {
-                var cnameList = JSON.parse(body);
-                const index = cnameList.findIndex(x=> x.name.toLowerCase() == cname.toLowerCase());
+                var aList = JSON.parse(body);
+                const index = aList.findIndex(x=> x.name.toLowerCase() == aName.toLowerCase());
                 if(index > -1){
-                   cnameList.splice(index, 1);
+                   aList.splice(index, 1);
                 }
 
-                // Update All CNAME records without old one
-                const data = JSON.stringify(cnameList);
+                // Update All A records without old one
+                const data = JSON.stringify(aList);
+                console.log("show data:");
+                console.log(data);
 
                 var options = {
                     host: goDaddyApiUrl,
-                    path: '/v1/domains/' + domainName + '/records/CNAME/',
+                    path: '/v1/domains/' + domainName + '/records/A/',
                     method: 'PUT',
                     headers: {
                         "Content-Type": "application/json",
@@ -104,12 +125,15 @@ try {
                     }
                 };
 
-                const req = http.request(options, response => { });
+                const req = http.request(options, response => { 
+                    console.log(response.statusCode);
+                    response.on('data', dt => { });
+                });
             
                 req.on('error', error => {
                     tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
                 });
-            
+                
                 req.write(data);
                 req.end();
             });
