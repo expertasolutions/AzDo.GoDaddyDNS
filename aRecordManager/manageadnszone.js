@@ -49,6 +49,10 @@ try {
     };
     http.request(domainRequest, r => {
         console.log(r.statusCode);
+        if(r.statusCode === 404){
+            tl.setResult(tl.TaskResult.Failed, "Domain Name: '" + domainName + "' not found");
+        }
+        
         var dBody = '';
         r.on('data', d=> {
             dBody += d;
