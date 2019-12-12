@@ -56,7 +56,9 @@ try {
             }
         };
     
-        const req = http.request(options, response => { });
+        const req = http.request(options, response => { 
+            console.log(response);
+        });
     
         req.on('error', error => {
             tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
