@@ -57,7 +57,7 @@ try {
         };
     
         const req = http.request(options, response => { 
-            console.log(response);
+            console.log(response.statusCode);
         });
     
         req.on('error', error => {
