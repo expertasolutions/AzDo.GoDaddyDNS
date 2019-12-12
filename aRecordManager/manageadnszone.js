@@ -48,23 +48,13 @@ try {
         }
     };
     http.request(domainRequest, r => {
-        console.log(r.statusCode);
         if(r.statusCode === 404){
             tl.setResult(tl.TaskResult.Failed, "Domain Name: '" + domainName + "' not found");
         }
-        
-        var dBody = '';
-        r.on('data', d=> {
-            dBody += d;
-        });
-
-        r.on('end', () => {
-            console.log(dBody);
-        });
     }).on('error', err => {
         tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
     }).end();
-    
+    // end of the check
 
     if(actionType === "createUpdate") {
         const data = JSON.stringify([{
