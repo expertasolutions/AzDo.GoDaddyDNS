@@ -56,7 +56,9 @@ try {
             }
         };
     
-        const req = http.request(options, response => { });
+        const req = http.request(options, response => {
+            
+        });
     
         req.on('error', error => {
             tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
@@ -84,6 +86,7 @@ try {
             });
               
             r.on('end', () => {
+                console.log(body);
                 var aList = JSON.parse(body);
                 const index = aList.findIndex(x=> x.name.toLowerCase() == aName.toLowerCase());
                 if(index > -1){

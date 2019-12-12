@@ -86,6 +86,7 @@ try {
             });
               
             r.on('end', () => {
+                console.log(body);
                 var cnameList = JSON.parse(body);
                 const index = cnameList.findIndex(x=> x.name.toLowerCase() == cname.toLowerCase());
                 if(index > -1){
