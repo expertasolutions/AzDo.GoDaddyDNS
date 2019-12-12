@@ -37,6 +37,29 @@ try {
 
     var authToken = "sso-key " + goDaddyToken + ":" + goDaddySecret;
 
+    // Check if the domain exists for the current shopper
+    let domainRequest = {
+        host: goDaddyApiUrl,
+        path: '/v1/domains/' + domainName,
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": authToken
+        }
+    };
+    http.request(domainRequest, r => {
+        r.on('data', d=> {
+            dBody += d;
+        });
+
+        r.on('end', () => {
+            console.log(dBody);
+        });
+    }).on('error', err => {
+        tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
+    }).end();
+    
+
     if(actionType === "createUpdate") {
         const data = JSON.stringify([{
             "data": ipAddress,
@@ -56,9 +79,7 @@ try {
             }
         };
     
-        const req = http.request(options, response => {
-            
-        });
+        const req = http.request(options, response => { });
     
         req.on('error', error => {
             tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
@@ -86,7 +107,6 @@ try {
             });
               
             r.on('end', () => {
-                console.log(body);
                 var aList = JSON.parse(body);
                 const index = aList.findIndex(x=> x.name.toLowerCase() == aName.toLowerCase());
                 if(index > -1){

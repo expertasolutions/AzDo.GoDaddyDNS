@@ -56,9 +56,7 @@ try {
             }
         };
     
-        const req = http.request(options, response => { 
-            console.log(response.statusCode);
-        });
+        const req = http.request(options, response => {  });
     
         req.on('error', error => {
             tl.setResult(tl.TaskResult.Failed, error || 'run() failed');
@@ -86,7 +84,6 @@ try {
             });
               
             r.on('end', () => {
-                console.log(body);
                 var cnameList = JSON.parse(body);
                 const index = cnameList.findIndex(x=> x.name.toLowerCase() == cname.toLowerCase());
                 if(index > -1){
