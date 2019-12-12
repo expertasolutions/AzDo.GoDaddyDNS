@@ -37,6 +37,25 @@ try {
 
     var authToken = "sso-key " + goDaddyToken + ":" + goDaddySecret;
 
+    // Check if the domain exists for the current shopper
+    let domainRequest = {
+        host: goDaddyApiUrl,
+        path: '/v1/domains/' + domainName,
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": authToken
+        }
+    };
+    http.request(domainRequest, r => {
+        if(r.statusCode === 404){
+            tl.setResult(tl.TaskResult.Failed, "Domain Name: '" + domainName + "' not found");
+        }
+    }).on('error', err => {
+        tl.setResult(tl.TaskResult.Failed, err || 'run() failed');
+    }).end();
+    // end of the check
+
     if(actionType === "createUpdate") {
         const data = JSON.stringify([{
             "data": alias,
