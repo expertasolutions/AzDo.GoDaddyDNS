@@ -22,10 +22,12 @@ try {
     var actionType = tl.getInput("actionType", true);
     var domainName = tl.getInput("domainName", true);
     var aName = tl.getInput("aName", true);
+
+    var inCreationMode = (actionType === "createUpdate");
+
     var ipAddress = tl.getInput("ipAddress", inCreationMode);
     var ttl = +(tl.getInput("ttl", inCreationMode));
 
-    var inCreationMode = (actionType === "createUpdate");
 
     console.log("GoDaddy API URL: " + goDaddyApiUrl);
     console.log("GoDaddy API Token: " + goDaddyToken);
