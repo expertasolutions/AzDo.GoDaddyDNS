@@ -68,8 +68,8 @@
           "name": "ipAddress",
           "type":"string",
           "label": "Ip Address",
-          "defaultValue":"",
-          "required": "$actionType == createUpdate",
+          "defaultValue":"1.0.0.1",
+          "required": true,
           "helpMarkDown":"",
           "groupName": "dnszonedetail"
         },
