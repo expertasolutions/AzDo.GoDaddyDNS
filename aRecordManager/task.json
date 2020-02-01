@@ -69,10 +69,9 @@
           "type":"string",
           "label": "Ip Address",
           "defaultValue":"",
-          "required": true,
+          "required": "$actionType == createUpdate",
           "helpMarkDown":"",
-          "groupName": "dnszonedetail",
-          "visibleRule": "actionType = createUpdate"
+          "groupName": "dnszonedetail"
         },
         {
           "name":"ttl",
