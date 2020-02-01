@@ -19,11 +19,13 @@ try {
     var goDaddyToken = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apitoken", false);
     var goDaddySecret = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apisecret", false);
 
+    var actionType = tl.getInput("actionType", true);
     var domainName = tl.getInput("domainName", true);
     var cname = tl.getInput("cname", true);
-    var alias = tl.getInput("alias", true);
-    var actionType = tl.getInput("actionType", true);
-    var ttl = +(tl.getInput("ttl", true));
+    var alias = tl.getInput("alias", inCreationMode);
+    var ttl = +(tl.getInput("ttl", inCreationMode));
+
+    var inCreationMode = (actionType === "createUpdate");
     
     console.log("GoDaddy API URL: " + goDaddyApiUrl);
     console.log("GoDaddy API Token: " + goDaddyToken);
@@ -32,8 +34,11 @@ try {
     console.log("ActionType: " + actionType);
     console.log("DomainName: " + domainName);
     console.log("CName: " + cname);
-    console.log("Alias: " + alias);
-    console.log("TTL: " + ttl);
+
+    if(inCreationMode === true) {
+        console.log("Alias: " + alias);
+        console.log("TTL: " + ttl);
+    }
 
     var authToken = "sso-key " + goDaddyToken + ":" + goDaddySecret;
 
