@@ -19,13 +19,13 @@ try {
     var goDaddyToken = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apitoken", false);
     var goDaddySecret = tl.getEndpointAuthorizationParameter(goDaddyEndpoint, "apisecret", false);
 
-    var inCreationMode = actionType === "createUpdate";
-
     var actionType = tl.getInput("actionType", true);
     var domainName = tl.getInput("domainName", true);
     var cname = tl.getInput("cname", true);
     var alias = tl.getInput("alias", inCreationMode);
     var ttl = +(tl.getInput("ttl", inCreationMode));
+
+    var inCreationMode = (actionType === "createUpdate");
     
     console.log("GoDaddy API URL: " + goDaddyApiUrl);
     console.log("GoDaddy API Token: " + goDaddyToken);
