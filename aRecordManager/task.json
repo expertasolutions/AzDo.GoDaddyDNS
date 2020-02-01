@@ -71,7 +71,8 @@
           "defaultValue":"1.0.0.1",
           "required": true,
           "helpMarkDown":"",
-          "groupName": "dnszonedetail"
+          "groupName": "dnszonedetail",
+          "visibleRule":"actionType = createUpdate"
         },
         {
           "name":"ttl",
