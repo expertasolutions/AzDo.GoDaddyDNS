@@ -19,7 +19,8 @@
     "windows"
   ],
   "links":{
-      "support": { "uri": "https://github.com/expertasolutions/GoDaddyDns/issues" }
+      "support": { "uri": "https://github.com/expertasolutions/GoDaddyDns/issues" },
+      "privacypolicy": { "uri": "http://experta.ca/privacy/azuredevopsprivacy" } 
   },
   "repository": {
     "type" : "git",
